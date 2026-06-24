@@ -1,0 +1,29 @@
+{
+  "name": "portfolio-aya",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --mode fullstack",
+    "dev:fullstack": "vite --mode fullstack",
+    "dev:data": "vite --mode data",
+    "build": "vite build --mode fullstack",
+    "build:fullstack": "vite build --mode fullstack",
+    "build:data": "vite build --mode data",
+    "preview": "vite preview",
+    "preview:fullstack": "vite preview --mode fullstack",
+    "preview:data": "vite preview --mode data"
+  },
+  "dependencies": {
+    "framer-motion": "^12.41.0",
+    "lucide-react": "^1.21.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.1",
+    "@vitejs/plugin-react": "^6.0.3",
+    "tailwindcss": "^4.3.1",
+    "vite": "^8.1.0"
+  }
+}

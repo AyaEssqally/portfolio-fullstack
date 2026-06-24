@@ -1,0 +1,157 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-bg: #faf7f2;
+  --color-bg-soft: #fffdf9;
+  --color-card: #ffffff;
+  --color-text: #1f2937;
+  --color-text-muted: #6b7280;
+  --color-primary: #6d5dfb;
+  --color-primary-soft: #edebff;
+  --color-accent: #2cb7a4;
+  --color-accent-soft: #e6f7f4;
+  --color-warm: #f4a261;
+  --color-border: #e5e7eb;
+
+  --font-display: 'Plus Jakarta Sans', 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --shadow-soft: 0 4px 24px rgba(31, 41, 55, 0.06);
+  --shadow-card: 0 2px 12px rgba(31, 41, 55, 0.04);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-bg text-text font-body antialiased;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-primary) 20%, transparent);
+  }
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes flow-dot {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-label {
+    font-family: var(--font-mono);
+    letter-spacing: 0.03em;
+  }
+
+  .section-container {
+    @apply mx-auto max-w-[1100px] px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-block {
+    @apply scroll-mt-[72px] py-24;
+  }
+
+  .section-alt {
+    @apply border-t border-border bg-bg-soft/60;
+  }
+
+  .section-header {
+    @apply max-w-2xl;
+  }
+
+  .section-subtitle {
+    @apply mt-3 text-base leading-relaxed text-text-muted;
+  }
+
+  .section-title {
+    @apply font-display text-3xl font-bold tracking-tight text-text sm:text-4xl;
+  }
+
+  .section-label {
+    font-family: var(--font-mono);
+    letter-spacing: 0.12em;
+    margin-bottom: 0.75rem;
+    font-size: 0.7rem;
+    line-height: 1rem;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 18px;
+    height: 2px;
+    border-radius: 1px;
+    background: var(--color-primary);
+  }
+
+  .card-surface {
+    @apply rounded-2xl border border-border bg-card;
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-hover {
+    @apply transition duration-300;
+  }
+
+  .card-hover:hover {
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-2px);
+  }
+
+  .timeline-row {
+    @apply flex flex-col gap-2 border-b border-border/70 py-4 last:border-b-0 last:pb-0 sm:flex-row sm:items-start sm:gap-5;
+  }
+
+  .timeline-period {
+    @apply shrink-0 rounded-lg bg-primary-soft px-3 py-1.5 text-xs font-medium text-primary sm:w-[7.5rem] sm:text-center;
+    font-family: var(--font-mono);
+    letter-spacing: 0.03em;
+  }
+}
